@@ -28,12 +28,13 @@ for i in range(0, len(alphabet) - seq_length, 1):
 # print(dataX,len(dataX))
 # reshape X to be [samples, time steps, features]
 X = numpy.reshape(dataX, (len(dataX), seq_length, 1))
+print(dataY)
 # normalize
 X = X / float(len(alphabet))
 # print(X)
 # one hot encode the output variable
 y = np_utils.to_categorical(dataY)
-
+print(y)
 # create and fit the model
 model = Sequential()
 model.add(LSTM(32, input_shape=(X.shape[1], X.shape[2])))
