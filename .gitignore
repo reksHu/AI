@@ -102,3 +102,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+tenserflowDemo/temp/temp_spam_data.csv

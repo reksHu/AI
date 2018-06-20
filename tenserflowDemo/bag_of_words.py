@@ -44,7 +44,7 @@ else:
     text_data = [x.split('\t') for x in text_data if len(x)>=1]
     
     # And write to csv
-    with open(save_file_name, 'w') as temp_output_file:
+    with open(save_file_name, 'w',newline="") as temp_output_file:
         writer = csv.writer(temp_output_file)
         writer.writerows(text_data)
 
@@ -112,7 +112,7 @@ x_col_sums_2D = tf.expand_dims(x_col_sums, 0)
 model_output = tf.add(tf.matmul(x_col_sums_2D, A), b)
 
 # Declare loss function (Cross Entropy loss)
-loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(model_output, y_target))
+loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits= model_output, labels= y_target))
 
 # Prediction operation
 prediction = tf.sigmoid(model_output)
