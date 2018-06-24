@@ -6,6 +6,7 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 # model = word2vec.Word2Vec(sentences, size=200)  # 训练skip-gram模型; 默认window=5
 model = word2vec.Word2Vec.load("text8.model")
 
+
 # y1 = model.similarity("woman", "man")
 # print(u"woman和man的相似度为：", y1)
 # print("--------\n")
