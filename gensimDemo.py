@@ -2,14 +2,17 @@ from gensim.models import word2vec
 import logging
 #https://blog.csdn.net/churximi/article/details/51472203
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-# sentences = word2vec.Text8Corpus(u"E:\\python\\tools\\text8")
-# model = word2vec.Word2Vec(sentences, size=200)  # 训练skip-gram模型; 默认window=5
-model = word2vec.Word2Vec.load("text8.model")
 
+sentences = word2vec.Text8Corpus(u"E:\\python\\tools\\text8")
+model = word2vec.Word2Vec(sentences, size=200,hs=1)  # 训练skip-gram模型; 默认window=5
+# model = word2vec.Word2Vec.load("text8.model")
 
-# y1 = model.similarity("woman", "man")
-# print(u"woman和man的相似度为：", y1)
-# print("--------\n")
+result = model.score(["The fox jumped over a lazy dog".split()])
+print(result)
+
+y1 = model.similarity("woman", "man")
+print(u"woman和man的相似度为：", y1)
+print("--------\n")
 
 # 计算某个词的相关词列表
 # y2 = model.most_similar("good", topn=20)  # 20个最相关的
@@ -33,7 +36,7 @@ model = word2vec.Word2Vec.load("text8.model")
 # more_examples = ["he his she", "big bigger bad", "going went being"]
 # for example in more_examples:
 #     a, b, x = example.split()
-#     model.wv.most_similar()
+#     # model.wv.most_similar()
 #     predicted = model.most_similar([x, b], [a])[0][0]
 #     print("'%s' is to '%s' as '%s' is to '%s'" % (a, b, x, predicted))
 # print("--------\n")
