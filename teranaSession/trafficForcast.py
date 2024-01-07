@@ -34,7 +34,8 @@ def read_data(fileName):
     return x, y,encoders
 
 def train_model(x, y ):
-    model = svm.SVR(kernel='rbf',C = 10, epsilon = 0.2) # C 为惩罚值，spsilon 为惩罚系数
+    # model = svm.SVR(kernel='rbf',C = 10, epsilon = 0.2) # C 为惩罚值，spsilon 为惩罚系数
+    model = svm.SVC(kernel='rbf',class_weight='balanced')
     model.fit(x, y)
     return  model
 
@@ -84,6 +85,7 @@ def main():
 
     new_x =  make_data(encoders)
     new_pred_y = pred_model(model,new_x)
+    print("new_pred_y:", new_pred_y)
     print(encoders[-1].inverse_transform(new_pred_y))
 
 if __name__ == '__main__':

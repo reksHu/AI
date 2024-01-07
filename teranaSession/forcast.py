@@ -75,7 +75,7 @@ def get_prob(model,x):
 
 def main():
     import pdb
-    fileName = r"E:\python\study\terana_Learning\AI\data\event.txt"
+    fileName = r"D:\python\study\terana_Learning\AI\data\event.txt"
     x , y, encoders =  read_data(fileName)
     train_x , test_x, train_y , test_y = ms.train_test_split(x, y ,test_size=0.25,random_state=5)
     model = train_model(train_x, train_y )

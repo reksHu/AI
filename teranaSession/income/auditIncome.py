@@ -1,7 +1,7 @@
 from DigitEncoder import MyDigitEncoder
 # from .DigitEncoder import MyDigitEncoder
 import numpy as np
-import sklearn.naive_bayes as nb
+import sklearn.naive_bayes as sh
 import sklearn.model_selection as ms
 import sklearn.preprocessing as sp
 import sklearn.metrics as sm
